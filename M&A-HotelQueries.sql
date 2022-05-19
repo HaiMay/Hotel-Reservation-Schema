@@ -67,14 +67,15 @@ from resevation re
   -- the number of reservations per guest, 
   -- sorted starting with the guest with the most reservations and then by the guest's last name.
   
-  select count(*),
+ select count(g.`LastName`) NumberOfOrder,
   g.`FirstName`,
   g.`LastName`,
   re.NumberAdult,
   re.numberChildren
   from resevation re
   inner join guest g on g.`FirstName` = re.FirstName and g.`LastName` = re.LastName
-  order by count(*);
+  group by g.`FirstName`
+  order by count(g.`LastName`) DESC;
   
   -- 7.Write a query that displays the name, address, 
   -- and phone number of a guest based on their phone number. (Choose a phone number from the existing data.)
