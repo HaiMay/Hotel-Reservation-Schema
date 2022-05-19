@@ -132,4 +132,10 @@ insert IGNORE into State (StateAbbr, `Name`) values
      (301,	'Mack', 'Simmer',	2,	2,	'2023/11/22',	'2023/11/25',	599.97),
      (302,	'Maritza', 'Tilton',	2,	0,	'2023/12/24',	'2023/12/24',	699.96);
      
-     
+      SET SQL_SAFE_UPDATES = 0;
+     delete from guest
+     where `FirstName` = 'Jeremiah'
+     and `LastName` = 'Pendergrass';
+     delete from resevation
+      where `FirstName` = 'Jeremiah'
+     and `LastName` = 'Pendergrass';
